@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Catalog</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <img src="assets/logo.png" alt="Business Logo" class="logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="catalog.html">Catalog</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Product Catalog</h1>
+    
+    <!-- Hardcoded Example Product -->
+    <div id="catalog">
+      <div class="product">
+        <!-- This image reference uses the code: "image": "images/item1.jpg" -->
+        <img src="images/item1.jpg" alt="Product 1">
+        <h2>Product 1</h2>
+        <p>Description for product 1.</p>
+        <button class="contact-btn" data-phone="[Your Business Phone Number]">Contact</button>
+      </div>
+    </div>
+    <div id="catalog">
+        <div class="product">
+          <!-- This image reference uses the code: "image": "images/item2.jpg" -->
+          <img src="images/item2.jpg" alt="Product 1">
+          <h2>Product 1</h2>
+          <p>Description for product 1.</p>
+          <button class="contact-btn" data-phone="[Your Business Phone Number]">Contact</button>
+        </div>
+      </div>
+      
+    <!-- You can also load products dynamically using catalog.js -->
+  </main>
+
+  <footer>
+    <p>Contact us: [Your Business Phone Number]</p>
+  </footer>
+
+  <!-- Load dynamic catalog script if desired -->
+  <script src="js/catalog.js"></script>
+</body>
+</html>

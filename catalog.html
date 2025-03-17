@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Catalog</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <header>
+    <img src="assets/logo.png" alt="Business Logo" class="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="catalog.html">Catalog</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Product Catalog</h1>
+
+    <!-- Filter Buttons -->
+    <div class="filters">
+      <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="bread">Bread</button>
+      <button class="filter-btn" data-category="beverages">Beverages</button>
+      <button class="filter-btn" data-category="snacks">Snacks</button>
+      <button class="filter-btn" data-category="disposal">Disposal</button>
+    </div>
+
+    <!-- Horizontal Scroll Product Catalog -->
+    <div id="catalog">
+      <div class="product" data-category="bread">
+        <img src="images/bread.jpg" alt="Bread Product">
+        <h2>Bread</h2>
+        <p>Freshly baked bread.</p>
+        <button class="contact-btn" data-phone="123-456-7890">Contact</button>
+      </div>
+
+      <div class="product" data-category="beverages">
+        <img src="images/beverage.jpg" alt="Beverage Product">
+        <h2>Beverage</h2>
+        <p>Refreshing beverage.</p>
+        <button class="contact-btn" data-phone="123-456-7890">Contact</button>
+      </div>
+
+ 
