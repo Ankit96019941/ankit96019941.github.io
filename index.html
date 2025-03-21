@@ -1,51 +1,410 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Catalog</title>
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <header>
-    <img src="assets/logo.png" alt="Business Logo" class="logo">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="catalog.html">Catalog</a>
-    </nav>
-  </header>
 
-  <main>
-    <h1>Product Catalog</h1>
-    
-    <!-- Hardcoded Example Product -->
-    <div id="catalog">
-      <div class="product">
-        <!-- This image reference uses the code: "image": "images/item1.jpg" -->
-        <img src="images/item1.jpg" alt="Product 1">
-        <h2>Product 1</h2>
-        <p>Description for product 1.</p>
-        <button class="contact-btn" data-phone="[Your Business Phone Number]">Contact</button>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sai Enterprises</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f7fdf7;
+    }
+
+    .intro-section {
+      height: 100vh;
+      background: linear-gradient(135deg, #388e3c, #66bb6a);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .intro-section img {
+      width: 80px;
+      margin-bottom: 15px;
+    }
+
+    .intro-section h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .intro-section p.address {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 15px;
+    }
+
+    .contact-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .contact-buttons a {
+      padding: 10px 15px;
+      border-radius: 6px;
+      color: #fff;
+      text-decoration: none;
+      background: #2e7d32;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .contact-buttons a:hover {
+      background: #256b29;
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .product-section {
+  padding: 60px 20px;
+}
+
+.filter-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.filter-container input,
+.filter-container select {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.product {
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+}
+
+.product img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.product h3 {
+  color: #388e3c;
+  margin-bottom: 5px;
+}
+
+.product p.mrp {
+  color: #c62828; /* Red for MRP */
+  font-weight: 500;
+  margin-bottom: 3px;
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+  text-decoration: line-through;
+  transition: all 0.4s ease;
+}
+
+.product p.sale {
+  color: #2e7d32; /* Green for Sale Rate */
+  font-weight: 600;
+  margin-bottom: 5px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.4s ease;
+}
+
+.product:hover p.mrp,
+.product:hover p.sale {
+  animation: pulse 0.8s infinite;
+}
+
+/* Pulse animation stays */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.call-btn,
+.whatsapp-btn {
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: inline-block;
+}
+
+.call-btn {
+  background: #2e7d32;
+}
+
+.call-btn:hover {
+  background: #256b29;
+}
+
+.whatsapp-btn {
+  background: #25d366;
+}
+
+.whatsapp-btn:hover {
+  background: #1ebe5b;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@media (max-width: 500px) {
+  .btn-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Page 1 -->
+  <section class="intro-section">
+    <img src="images/logo.png" alt="Logo">
+    <h1>SAI ENTERPRISES</h1>
+    <p class="address">H. No. 35AP, SECTOR 40, GURGAON, HARYANA, 122001</p>
+    <div class="contact-buttons">
+      <a href="tel:+917011564116">📞 Call: +91 7011564116</a>
+      <a href="https://wa.me/+917011564116?text=Hi!%20I%20want%20to%20inquire%20about%20your%20products" target="_blank">💬 WhatsApp</a>
+      <a href="mailto:info@mybusiness.com">✉ Email: mail.saienterprieses@gmail.com</a>
     </div>
-    <div id="catalog">
-        <div class="product">
-          <!-- This image reference uses the code: "image": "images/item2.jpg" -->
-          <img src="images/item2.jpg" alt="Product 1">
-          <h2>Product 1</h2>
-          <p>Description for product 1.</p>
-          <button class="contact-btn" data-phone="[Your Business Phone Number]">Contact</button>
+    <a href="#products" class="scroll-down">▼ Scroll to Products</a>
+  </section>
+
+  <!-- Page 2 -->
+  <section class="product-section" id="products">
+    <div class="filter-container">
+      <input type="text" id="filterInput" placeholder="Search by product name...">
+      <select id="categoryFilter">
+        <option value="all">All Categories</option>
+        <option value="Bakery">Bakery</option>
+        <option value="Beverage">Beverage</option>
+        <option value="Snacks">Snacks</option>
+        <option value="Disposal">Disposal</option>
+      </select>
+    </div>
+
+    <div class="product-list" id="productList">
+      <!-- Product 1 -->
+      <div class="product" data-category="Bakery">
+        <img src="images/jumbobreadbrown.jpg" alt="Product 1">
+        <h3>Jumbo Bread Brown</h3>
+        <p></p>
+        <p class="mrp">MRP: 140</p>
+        <p class="sale">Rate: 125</p>
+        <div class="btn-container">
+          <a href="tel:+917011564116" class="call-btn">Call Now</a>
+          <a href="#" class="whatsapp-btn" onclick="sendWhatsApp('Smartphone X', 'Latest smartphone with top features.', '$850')">WhatsApp</a>
         </div>
       </div>
       
-    <!-- You can also load products dynamically using catalog.js -->
-  </main>
+      <div class="product" data-category="Bakery">
+        <img src="images/jumbobreadwhite.jpg" alt="Product 1">
+        <h3>Jumbo Bread White</h3>
+        <p></p>
+        <p class="mrp">MRP: 140</p>
+        <p class="sale">Rate: 125</p>
+        <div class="btn-container">
+          <a href="tel:+917011564116" class="call-btn">Call Now</a>
+          <a href="#" class="whatsapp-btn" onclick="sendWhatsApp('Smartphone X', 'Latest smartphone with top features.', '$850')">WhatsApp</a>
+        </div>
+      </div>
 
-  <footer>
-    <p>Contact us: [Your Business Phone Number]</p>
-  </footer>
+      <div class="product" data-category="Bakery">
+        <img src="images/subwaybread.jpg" alt="Product 1">
+        <h3>Subway Bread</h3>
+        <p></p>
+        <p class="mrp">MRP: 120</p>
+        <p class="sale">Rate: 95</p>
+        <div class="btn-container">
+          <a href="tel:+917011564116" class="call-btn">Call Now</a>
+          <a href="#" class="whatsapp-btn" onclick="sendWhatsApp('Smartphone X', 'Latest smartphone with top features.', '$850')">WhatsApp</a>
+        </div>
+      </div>
+      
+      <div class="product" data-category="Bakery">
+        <img src="images/Kulcha.jpg" alt="Product 1">
+        <h3>Kulcha</h3>
+        <p></p>
+        <p class="mrp">MRP: 50</p>
+        <p class="sale">Rate: 28</p>
+        <div class="btn-container">
+          <a href="tel:+917011564116" class="call-btn">Call Now</a>
+          <a href="#" class="whatsapp-btn" onclick="sendWhatsApp('Smartphone X', 'Latest smartphone with top features.', '$850')">WhatsApp</a>
+        </div>
+      </div>
 
-  <!-- Load dynamic catalog script if desired -->
-  <script src="js/catalog.js"></script>
+      <div class="product" data-category="Bakery">
+        <img src="images/burgerbun.jpg" alt="Product 1">
+        <h3>Burger Bun</h3>
+        <p></p>
+        <p class="mrp">MRP: 50</p>
+        <p class="sale">Rate: 28</p>
+        <div class="btn-container">
+          <a href="tel:+917011564116" class="call-btn">Call Now</a>
+          <a href="#" class="whatsapp-btn" onclick="sendWhatsApp('Smartphone X', 'Latest smartphone with top features.', '$850')">WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="product" data-category="Bakery">
+        <img src="images/pavbread.jpg" alt="Product 1">
+        <h3>Pav Bread</h3>
+        <p></p>
+        <p class="mrp">MRP: 50</p>
+        <p class="sale">Rate: 28</p>
+        <div class="btn-container">
+          <a href="tel:+917011564116" class="call-btn">Call Now</a>
+          <a href="#" class="whatsapp-btn" onclick="sendWhatsApp('Smartphone X', 'Latest smartphone with top features.', '$850')">WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product" data-category="Beverage">
+        <img src="images/product.jpg" alt="Product 2">
+        <h3>Luxury Sofa</h3>
+        <p>Comfortable and stylish sofa set.</p>
+        <p>MRP: $1200 | Sale: $999</p>
+        <div class="btn-container">
+          <a href="tel:+917011564116" class="call-btn">Call Now</a>
+          <a href="#" class="whatsapp-btn" onclick="sendWhatsApp('Luxury Sofa', 'Comfortable and stylish sofa set.', '$999')">WhatsApp</a>
+        </div>
+      </div>
+      <!-- Product 3 -->
+      <div class="product" data-category="fashion">
+        <img src="images/product.jpg" alt="Product 3">
+        <h3>Men's Jacket</h3>
+        <p>Trendy winter jacket for men.</p>
+        <p>MRP: $150 | Sale: $120</p>
+        <div class="btn-container">
+          <a href="tel:+917011564116" class="call-btn">Call Now</a>
+          <a href="#" class="whatsapp-btn" onclick="sendWhatsApp('Men\'s Jacket', 'Trendy winter jacket for men.', '$120')">WhatsApp</a>
+        </div>
+      </div>
+      <!-- Product 4 -->
+      <div class="product" data-category="electronics">
+        <img src="images/product4.jpg" alt="Product 4">
+        <h3>Bluetooth Speaker</h3>
+        <p>Portable wireless speaker with HD sound.</p>
+        <p>MRP: $80 | Sale: $65</p>
+        <div class="btn-container">
+          <a href="tel:+917011564116" class="call-btn">Call Now</a>
+          <a href="#" class="whatsapp-btn" onclick="sendWhatsApp('Bluetooth Speaker', 'Portable wireless speaker with HD sound.', '$65')">WhatsApp</a>
+        </div>
+      </div>
+      <!-- Product 5 -->
+      <div class="product" data-category="fashion">
+        <img src="images/product5.jpg" alt="Product 5">
+        <h3>Women's Handbag</h3>
+        <p>Elegant leather handbag for women.</p>
+        <p>MRP: $200 | Sale: $160</p>
+        <div class="btn-container">
+          <a href="tel:+917011564116" class="call-btn">Call Now</a>
+          <a href="#" class="whatsapp-btn" onclick="sendWhatsApp('Women\'s Handbag', 'Elegant leather handbag for women.', '$160')">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const filterInput = document.getElementById('filterInput');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const products = document.querySelectorAll('.product');
+
+    function filterProducts() {
+      const searchValue = filterInput.value.toLowerCase();
+      const selectedCategory = categoryFilter.value;
+      products.forEach(product => {
+        const title = product.querySelector('h3').innerText.toLowerCase();
+        const category = product.getAttribute('data-category');
+        const matchName = title.includes(searchValue);
+        const matchCategory = selectedCategory === 'all' || category === selectedCategory;
+        product.style.display = (matchName && matchCategory) ? 'block' : 'none';
+      });
+    }
+
+    filterInput.addEventListener('keyup', filterProducts);
+    categoryFilter.addEventListener('change', filterProducts);
+
+    function sendWhatsApp(product, description, price) {
+      const message = prompt("Enter your message for us:");
+      if (message !== null) {
+        const text = `Product: ${product}\nDescription: ${description}\nPrice: ${price}\nMessage: ${message}`;
+        const url = `https://wa.me/7011564116?text=${encodeURIComponent(text)}`;
+         window.open(url, '_blank');
+      }
+    }
+  </script>
+
 </body>
+
 </html>
