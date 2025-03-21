@@ -264,7 +264,7 @@
         <p class="sale">Rate: 125</p>
         <div class="btn-container">
           <a href="tel:+917011564116" class="call-btn">Call Now</a>
-          <a href="#" class="whatsapp-btn" onclick="sendWhatsApp('Smartphone X', 'Latest smartphone with top features.', '$850')">WhatsApp</a>
+          <a href="#" class="whatsapp-btn" onclick="sendToWhatsapp(event, 'Jumbo Bread Brown', 'Fresh and soft brown bread.', '140', '125')">WhatsApp</a>
         </div>
       </div>
       
@@ -395,14 +395,16 @@
     filterInput.addEventListener('keyup', filterProducts);
     categoryFilter.addEventListener('change', filterProducts);
 
-    function sendWhatsApp(product, description, price) {
-      const message = prompt("Enter your message for us:");
-      if (message !== null) {
-        const text = `Product: ${product}\nDescription: ${description}\nPrice: ${price}\nMessage: ${message}`;
-        const url = `https://wa.me/7011564116?text=${encodeURIComponent(text)}`;
-         window.open(url, '_blank');
-      }
-    }
+    filterInput.addEventListener('keyup', filterProducts);
+    categoryFilter.addEventListener('change', filterProducts);
+
+    function sendToWhatsapp(e, name, desc, mrp, Rate) {
+    e.preventDefault(); // Prevents href="#" from refreshing the page
+    let msg = `I'm interested in ${name}\nDescription: ${desc}\nMRP: ${mrp}\nSale Price: ${Rate}`;
+    let url = `https://wa.me/+917011564116?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+  }
+
   </script>
 
 </body>
