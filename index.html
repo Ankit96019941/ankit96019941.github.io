@@ -248,6 +248,7 @@
       <select id="categoryFilter">
         <option value="all">All Categories</option>
         <option value="Bakery">Bakery</option>
+        <option value="Sauce">Sauce</option>
         <option value="Beverage">Beverage</option>
         <option value="Snacks">Snacks</option>
         <option value="Disposal">Disposal</option>
@@ -255,7 +256,7 @@
     </div>
 
     <div class="product-list" id="productList">
-      <!-- Product 1 -->
+      <!-- Product 1 --> 
       <div class="product" data-category="Bakery">
         <img src="images/jumbobrownbread.jpg" alt="Product 1">
         <h3>Jumbo Brown Bread</h3>
@@ -283,7 +284,7 @@
       <div class="product" data-category="Bakery">
         <img src="images/subwaybread.jpg" alt="Product 1">
         <h3>Subway Bread</h3>
-        <p>Fresh and Soft Subway Bread/p>
+        <p>Fresh and Soft Subway Bread</p>
         <p class="mrp">MRP: ₹120</p>
         <p class="sale">Rate: ₹95</p>
         <div class="btn-container">
@@ -329,17 +330,80 @@
       </div>
 
       <!-- Product 2 -->
-      <div class="product" data-category="Beverage">
-        <img src="images/product.jpg" alt="Product 2">
-        <h3>Luxury Sofa</h3>
-        <p>Comfortable and stylish sofa set.</p>
-        <p>MRP: $1200 | Sale: $999</p>
+      <div class="product" data-category="Sauce">
+        <img src="images/.jpg" alt="Product 2">
+        <h3></h3>
+        <p></p>
+        <p class="mrp">MRP: ₹</p>
+        <p class="sale">Rate: ₹</p>
         <div class="btn-container">
           <a href="tel:+917011564116" class="call-btn">Call Now</a>
-          <a href="#" class="whatsapp-btn" onclick="sendWhatsApp('Luxury Sofa', 'Comfortable and stylish sofa set.', '$999')">WhatsApp</a>
+          <a href="#" class="whatsapp-btn" onclick="sendToWhatsapp(event,  '', '.', '', '')">WhatsApp</a>
         </div>
       </div>
+
+
       <!-- Product 3 -->
+      <div class="product" data-category="Sauce">
+        <img src="images/paperboatlassi.jpg" alt="Product 2">
+        <h3>Paper Boat Lassi</h3>
+        <p></p>
+        <p class="mrp">MRP: ₹900/Box</p>
+        <p class="sale">Rate: ₹</p>
+        <div class="btn-container">
+          <a href="tel:+917011564116" class="call-btn">Call Now</a>
+          <a href="#" class="whatsapp-btn" onclick="sendToWhatsapp(event,  'Paper Boat Lassi', '.', '₹900/Box', '₹/Box')">WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="product" data-category="Sauce">
+        <img src="images/amullassi.jpg" alt="Product 2">
+        <h3>Amul Lassi</h3>
+        <p></p>
+        <p class="mrp">MRP: ₹750/Box</p>
+        <p class="sale">Rate: ₹610/Box</p>
+        <div class="btn-container">
+          <a href="tel:+917011564116" class="call-btn">Call Now</a>
+          <a href="#" class="whatsapp-btn" onclick="sendToWhatsapp(event,  'Amul Lassi', '.', '₹750/Box', '₹610/Box')">WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="product" data-category="Sauce">
+        <img src="images/amulbuttermilk.jpg" alt="Product 2">
+        <h3>Amul Buttermilk</h3>
+        <p></p>
+        <p class="mrp">MRP: ₹600/Box</p>
+        <p class="sale">Rate: ₹500/Box</p>
+        <div class="btn-container">
+          <a href="tel:+917011564116" class="call-btn">Call Now</a>
+          <a href="#" class="whatsapp-btn" onclick="sendToWhatsapp(event,  'Amul Buttermilk', '.', '₹600/Box', '₹500/Box')">WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="product" data-category="Sauce">
+        <img src="images/canmrp40.jpg" alt="Product 2">
+        <h3>Can Mrp 40</h3>
+        <p></p>
+        <p class="mrp">MRP: ₹960</p>
+        <p class="sale">Rate: ₹680</p>
+        <div class="btn-container">
+          <a href="tel:+917011564116" class="call-btn">Call Now</a>
+          <a href="#" class="whatsapp-btn" onclick="sendToWhatsapp(event,  'Cans Mrp 40', '.', '₹9600', '₹680')">WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="product" data-category="Sauce">
+        <img src="images/canmrp25.jpg" alt="Product 2">
+        <h3>Can MRP 25</h3>
+        <p></p>
+        <p class="mrp">MRP: ₹900/Box</p>
+        <p class="sale">Rate: ₹720/Box</p>
+        <div class="btn-container">
+          <a href="tel:+917011564116" class="call-btn">Call Now</a>
+          <a href="#" class="whatsapp-btn" onclick="sendToWhatsapp(event,  'Can MRP 25', '.', '₹900/Box', '₹720/Box')">WhatsApp</a>
+        </div>
+      </div>
+
       <div class="product" data-category="fashion">
         <img src="images/product.jpg" alt="Product 3">
         <h3>Men's Jacket</h3>
